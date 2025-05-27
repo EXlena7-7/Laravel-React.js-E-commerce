@@ -29,6 +29,7 @@ export default forwardRef(function TextInput(
 
     return (
         <input
+            data-theme="light"
             {...props}
             type={type}
             className={
