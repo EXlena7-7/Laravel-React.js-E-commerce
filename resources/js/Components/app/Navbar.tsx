@@ -1,8 +1,10 @@
-import { Link } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 import React from 'react';
 
 
 function Navbar() {
+    const {auth} = usePage().props;
+    const {user} = auth;
   return (
     <div>
         <div className="navbar bg-base-100 shadow-sm">
@@ -29,7 +31,7 @@ function Navbar() {
                     </div>
                 </div>
                 </div>
-                <div className="dropdown dropdown-end">
+                {user && <div className="dropdown dropdown-end">
                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                     <div className="w-10 rounded-full">
                     <img
@@ -49,7 +51,12 @@ function Navbar() {
                         <Link href={route('logout')} method={"post"} as="button">Logout</Link>
                     </li>
                 </ul>
-                </div>
+                </div> }
+                {!user && <>
+                    <Link href={route('login')} className={"btn"}>Login</Link>
+                    <Link href={route('register')} className={"btn btn-primary"}>Register</Link>
+                </>
+                }
             </div>
             </div>
     </div>
