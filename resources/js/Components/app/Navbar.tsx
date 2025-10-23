@@ -9,7 +9,7 @@ function Navbar() {
     <div>
         <div className="navbar bg-base-100 shadow-sm">
             <div className="flex-1">
-                <Link href={'/'} className="btn btn-ghost text-xl">Shangai Store</Link>
+                <Link href={'/'} className="btn btn-ghost text-xl">Marjory Store</Link>
             </div>
             <div className="flex-none gap-4">
                 <div className="dropdown dropdown-end">
