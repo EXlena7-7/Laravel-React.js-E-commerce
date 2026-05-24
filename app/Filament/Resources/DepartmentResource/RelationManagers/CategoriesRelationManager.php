@@ -45,13 +45,19 @@ class CategoriesRelationManager extends RelationManager
                 Tables\Columns\TextColumn::make('name')
                 ->sortable()
                 ->searchable(),
-                 Tables\Columns\TextColumn::make('parent.name')
+                Tables\Columns\TextColumn::make('parent.name')
+                ->sortable()
+                ->searchable(),
+                Tables\Columns\TextColumn::make('department.name')
+                ->label('Department')
                 ->sortable()
                 ->searchable(),
                 IconColumn::make('active')
             ])
-
-
+            ->actions([
+                Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
+            ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
